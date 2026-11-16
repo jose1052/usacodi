@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <link rel="stylesheet" href="prueba.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu principal(admistrador)</title>
+</head>
+<body>
+<!-- ENCABEZADO Y NOTIFICACIONES -->
+
+    <header class="inicio">
+    <h1><strong>USACODI</strong></h1>
+    <!-- El botón principal ahora tiene su contador de notificaciones generales -->
+    <button type="button" id="btnNotificaciones" class="btn-notificaciones" onclick="toggleMenuNotificaciones()">
+        <span class="contador" id="contadorPrincipal">2</span> 🔔 Notificaciones
+    </button> 
+</header>
+
+<div id="panelNotificaciones" class="panel-notificaciones" style="display: none;">
+    <div class="panel-encabezado">
+        <h2>Notificaciones</h2>
+        <span class="badge-total" id="badgeInterno">2 Nuevas</span>
+    </div>
+    
+    <div class="panel-contenido">
+        <!-- Notificación: Nuevo Reporte (Agregamos id="notif-reporte") -->
+        <div class="notificacion alerta-reporte sin-leer" id="notif-reporte">
+            <div class="notificacion-icono">📊</div>
+            <div class="notificacion-info">
+                <strong>Nuevo reporte</strong>
+                <p>Tienes un nuevo reporte técnico listo para revisión.</p>
+                <span class="notificacion-tiempo">Hace 5 min</span>
+            </div>
+            <!-- Modificado: Llama a procesarLectura pasando su ID y el panel flotante destino -->
+            <button class="btn-ver" onclick="procesarLectura('notif-reporte', 'gestionusuario')">Ver</button>
+        </div>
+
+        <!-- Notificación: Nuevo Mensaje  -->
+        <div class="notificacion alerta-mensaje sin-leer" id="notif-mensaje">
+            <div class="notificacion-icono">💬</div>
+            <div class="notificacion-info">
+                <strong>Nuevo mensaje</strong>
+                <p>Rafael Torrealba te ha enviado un mensaje en el chat.</p>
+                <span class="notificacion-tiempo">Hace 15 min</span>
+            </div>
+            <!-- Modificado: Llama a procesarLectura pasando su ID y el panel flotante destino -->
+            <button class="btn-ver" onclick="procesarLectura('notif-mensaje', 'mensaje')">Ver</button>
+        </div>
+
+        <!-- Notificación: Nueva Tarea  -->
+        <div class="notificacion alerta-tarea">
+            <div class="notificacion-icono">📋</div>
+            <div class="notificacion-info">
+                <strong>Nueva tarea</strong>
+                <p>Tienes una tarea asignada en el tablero de desarrollo.</p>
+                <span class="notificacion-tiempo">Hace 2 horas</span>
+            </div>
+            <button class="btn-ver">Ver</button>
+        </div>
+    </div>
+</div>
+
+ 
+    </header>
+    <!-- MENU PRINCIPAL -->
+    <main>
+       <div class="botones">
+         <!-- Abre el formulario de CADA BOTON DEL MENU -->
+        <button onclick="togglePanel('miInformacion')" class="nueva-informacion" id="nuevainformacion">
+            <strong>Nueva informacion</strong>
+        </button> 
+        
+        <button onclick="togglePanel('gestionusuario')" class="Gestion-usuarios" id="btn-gestionusuario"><strong>Gestion de usuarios</strong></button>
+        
+        <button onclick="togglePanel('gestiontareas')" class="Gestion-tareas" id="btn-gestiontareas"><strong>Gestion de tareas</strong></button>
+        <button onclick="togglePanel('mensaje')" class="Mensajeria" id="Mensajeria">
+            <strong>Mensajeria</strong>
+        </button>
+        <button onclick="togglePanel('busqueda')" class="Busqueda" id="btn-Busqueda"><strong>Busqueda</strong></button>
+        <button onclick="togglePanel('configuracion')" class="Configuracion" id="btn-configuracion"><strong>Configuracion</strong></button>
+    </div>
+
+        
+   <!-- [PANEL 1] Informacion Del Vehiculo, es decir nueva infromacion -->
+
+<div id="miInformacion" class="formulario-flotante" style="display: none;">
+    <h2 class="encabezado-form">Información Del Vehículo</h2>
+    <form action="nueva_informacion" id="formulario" enctype="multipart/form-data">
+
+        <div class="input-group"><label for="marca">Marca:</label><input type="text" id="marca" placeholder="Ej. Chevrolet"></div>
+        <div class="input-group"><label for="Modelo">Modelo:</label><input type="text" id="Modelo" placeholder="Ej. Onix"></div>
+        <div class="input-group"><label for="anio">Año:</label><input type="text" id="anio" placeholder="Ej. 2024"></div>
+        <div class="input-group"><label for="Tipo">Tipo:</label><input type="text" id="Tipo" placeholder="Ej. Sedán / SUV"></div>
+        <div class="input-group"><label for="Placa">Placa:</label><input type="text" id="Placa" placeholder="Ej. AAA123"></div>
+        <div class="input-group"><label for="foto">Fotos:</label><input type="file" id="foto"></div>
+        
+        <input type="hidden" id="fecha_registro" name="fecha_registro">
+
+        <!-- Busca esta línea en tus botones del formulario y déjala exactamente así: -->
+<div class="form-botones">
+    <button type="submit" class="btn-guardar">Guardar</button>
+
+    <button type="button" class="btn-cancelar" onclick="mostrarAlertaCancelar()">Cancelar</button>
+</div>
+
+    </form>
+</div>
+
+<!-- NUEVA SECCIÓN: Panel único para mostrar los datos registrados -->
+<div id="panelResumen" class="panel-resumen" style="display: none;">
+    <h2 class="encabezado-resumen">Vehículo Registrado Exitosamente</h2>
+    <div class="tarjeta-datos">
+        <p><strong>Fecha de Registro:</strong> <span id="resumenFecha" class="resaltar-fecha"></span></p>
+        <hr>
+           <div class="contenedor-foto-resumen">
+            <img id="resumenFoto" src="" alt="Foto del vehículo" style="display: none;">
+        </div>
+        <p><strong>Marca:</strong> <span id="resumenMarca"></span></p>
+        <p><strong>Modelo:</strong> <span id="resumenModelo"></span></p>
+        <p><strong>Año:</strong> <span id="resumenAnio"></span></p>
+        <p><strong>Tipo:</strong> <span id="resumenTipo"></span></p>
+        <p><strong>Placa:</strong> <span id="resumenPlaca"></span></p>
+    </div>
+    <div class="form-botones">
+        <button type="button" class="btn-aceptar" onclick="cerrarResumen()">Aceptar</button>
+    </div>
+</div>
+<!-- NUEVA SECCIÓN: Panel de Alerta para Confirmar Cancelación -->
+<div id="panelAlertaCancelar" class="panel-alerta" style="display: none;">
+    <div class="alerta-icono">⚠️</div>
+    <h2 class="alerta-titulo">¿Seguro que quiere cancelar?</h2>
+    <p class="alerta-mensaje">Se perderán todos los datos ingresados en el formulario y no se guardará la operación.</p>
+    <div class="form-botones-alerta">
+        <!-- Si da Aceptar, borra todo y regresa al menú -->
+        <button type="button" class="btn-alerta-aceptar" onclick="confirmarCancelacion()">Sí, Cancelar</button>
+        <!-- Si da Volver, cierra la alerta y sigue editando el formulario -->
+        <button type="button" class="btn-alerta-volver" onclick="cerrarAlertaCancelar()">Volver al Formulario</button>
+    </div>
+</div>
+
+<!-- [PANEL 2] nuevo mensaje -->
+<div id="mensaje" class="formulario-flotante" style="display: none;">
+    <h2 class="encabezado-mensaje">Nuevo Mensaje</h2>
+    <form action="nueva_mensaje" id="form-mensaje">
+        
+        <div class="input-group">
+            <label for="tipo">Destinatario:</label>
+            <select name="tipo" id="tipo" onchange="cargarHistorialDesdeSelect()">
+                <option value="">Seleccione un destinatario</option>
+                <option value="personal1">Andres torres</option>
+                <option value="personal2">Rafael Torrealba</option>
+                <option value="personal3">Nancy Fuentes</option>
+                <option value="personal4">Joseph Muños</option>
+                <option value="personal5">Jhonatan Rios</option>
+            </select>
+        </div> 
+
+        <div class="chat-container">
+            <label><strong>Historial de Conversación</strong></label>
+            <div id="historialChat" class="historial-chat">
+                <p class="chat-vacio">Selecciona un chat para ver los mensajes anteriores</p>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="descripcion"><strong>Escribir mensaje</strong></label>
+            <textarea id="descripcion" name="descripcion" rows="3" placeholder="Escriba la descripción del mensaje"></textarea>
+        </div>
+        
+        <div class="input-group">
+            <label for="foto-mensaje">Fotos:</label>
+            <input type="file" id="foto-mensaje">
+        </div>
+        
+        <div class="form-botones">
+            <button type="submit" class="btn-guardar">Enviar</button>
+            <!-- MODIFICADO: Ahora llama a mostrarAlertaCancelarMensaje() -->
+            <button type="button" class="btn-cancelar" onclick="mostrarAlertaCancelarMensaje()">Cancelar</button>
+        </div>
+
+        <div class="otros-chats-seccion">
+            <h3>Chats recientes</h3>
+            <ul class="lista-chats">
+                <li>
+                    <button type="button" class="chat-item" id="btn-personal2" onclick="cambiarChat('personal2')">
+                        💬 Rafael Torrealba
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="chat-item" id="btn-personal4" onclick="cambiarChat('personal4')">
+                        💬 Joseph Muños
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+<!-- NUEVA SECCIÓN: Panel de Alerta para Confirmar Cancelación de Mensaje -->
+<div id="panelAlertaCancelarMensaje" class="panel-alerta" style="display: none;">
+    <div class="alerta-icono">⚠️</div>
+    <h2 class="alerta-titulo">¿Seguro que quiere cancelar?</h2>
+    <p class="alerta-mensaje">Se borrará el mensaje que está escribiendo y regresará al menú principal.</p>
+    <div class="form-botones-alerta">
+        <!-- Si da Aceptar, borra el texto y cierra todo -->
+        <button type="button" class="btn-alerta-aceptar" onclick="confirmarCancelacionMensaje()">Sí, Cancelar</button>
+        <!-- Si da Volver, regresa al chat actual -->
+        <button type="button" class="btn-alerta-volver" onclick="cerrarAlertaCancelarMensaje()">Volver al Mensaje</button>
+    </div>
+</div>
+
+
+<!-- [PANEL 3] gestion de usuario -->
+<div id="gestionusuario" class="formulario-flotante" style="display: none;">
+    
+    <!-- BLOQUE A: Formulario de Gestión Tradicional -->
+    <div id="wrapperFormUsuario">
+        <h2 class="encabezado-form">Gestión de Usuario</h2>
+        <form action="nuevo_usuario" id="form-usuario">
+            <div class="input-group"><label for="nombres">Nombres:</label><input type="text" id="nombres"></div>
+            <div class="input-group"><label for="apellidos">Apellidos:</label><input type="text" id="apellidos"></div>
+            <div class="input-group"><label for="Correo">Correo:</label><input type="text" id="Correo"></div>
+            <div class="input-group"><label for="cargo">Cargo:</label><input type="text" id="cargo"></div>
+            <div class="input-group"><label for="rol">Rol:</label><input type="text" id="rol"></div>
+            <div class="input-group"><label for="foto-perfil">Foto de perfil:</label><input type="file" id="foto-perfil" accept="image/*"></div>
+            
+            <div class="form-botones">
+                <!-- CORREGIDO: Llama a mostrarAlertaCancelarUsuario pasándole el evento -->
+                <button type="button" class="btn-cancelar" onclick="mostrarAlertaCancelarUsuario(event)">Cancelar</button>
+                <button type="submit" class="btn-guardar">Guardar</button>
+            </div>
+
+            <!-- ACCIONES AVANZADAS POR CÉDULA -->
+            <div class="acciones-cedula-seccion">
+                <h3>Acciones por Cédula</h3>
+                
+                <div class="control-cedula">
+                    <label for="cedula-buscar">Editar Usuario:</label>
+                    <div class="busqueda-inline">
+                        <input type="number" id="cedula-buscar" placeholder="Ingrese cédula...">
+                        <button type="button" class="btn-accion-azul" onclick="buscarYEditarUsuario()">Buscar</button>
+                    </div>
+                </div>
+
+                <div class="control-cedula">
+                    <label for="cedula-eliminar">Eliminar Usuario:</label>
+                    <div class="busqueda-inline">
+                        <input type="number" id="cedula-eliminar" placeholder="Ingrese cédula...">
+                        <button type="button" class="btn-accion-rojo" onclick="eliminarUsuarioPorCedula()">Eliminar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- BLOQUE B: Panel de Alerta para Confirmar Cancelación -->
+    <div id="panelAlertaCancelarUsuario" class="panel-alerta" style="display: none; padding: 15px; margin-top: 10px;">
+        <div class="alerta-icono">⚠️</div>
+        <h2 class="alerta-titulo" style="font-size: 1.3rem;">¿Seguro que quiere cancelar?</h2>
+        <p class="alerta-mensaje">Se perderán todos los datos ingresados en el formulario del usuario y regresará al menú principal.</p>
+        <div class="form-botones-alerta">
+            <button type="button" class="btn-alerta-aceptar" onclick="confirmarCancelacionUsuario()">Sí, Cancelar</button>
+            <button type="button" class="btn-alerta-volver" onclick="cerrarAlertaCancelarUsuario()">Volver al Formulario</button>
+        </div>
+    </div>
+</div>
+
+<!-- PANEL ÚNICO PARA NOTIFICACIONES DE ÉXITO (Mismo nivel) -->
+<div id="panelNotificacion" class="panel-notificacion" style="display: none;">
+    <div id="notificacionIcono" class="notificacion-icono"></div>
+    <h2 id="notificacionTitulo" class="notificacion-titulo">Operación Exitosa</h2>
+    
+    <div class="tarjeta-datos">
+        <p><strong>Fecha y Hora:</strong> <span id="notificacionFecha" class="resaltar-fecha"></span></p>
+        <hr>
+         <div id="contenedorFotoPerfil" class="avatar-resumen-contenedor" style="display: none;">
+            <img id="notifFotoPerfil" src="" alt="Foto de perfil">
+        </div>
+        <p id="notificacionMensaje"></p>
+        
+        <div id="notificacionDetalles" style="display: none;">
+            <p><strong>Usuario:</strong> <span id="notifNombreCompleto"></span></p>
+            <p><strong>Cargo/Rol:</strong> <span id="notifCargoRol"></span></p>
+        </div>
+    </div>
+    
+    <div class="form-botones">
+        <button type="button" class="btn-notif-aceptar" onclick="cerrarNotificacion()">Aceptar</button>
+    </div>
+</div>
+
+
+
+<!-- [PANEL 4] gestion de tareas -->
+<div id="gestiontareas" class="formulario-flotante" style="display: none;">
+    
+    <!-- BLOQUE A: Formulario Tradicional envuelto de forma segura -->
+    <div id="wrapperFormTareas">
+        <h2 class="encabezado-form">Gestión De Tareas</h2>
+        <form action="nueva_tarea" id="formulariotareas">   
+            <div class="input-group">
+                <label for="destinatario-tarea">Destinatario</label>
+                <select id="destinatario-tarea" name="tipo">
+                    <option value="">Seleccione un destinatario</option>
+                    <option value="personal1">Andres torres</option>
+                    <option value="personal2">Rafael Torrealba</option>
+                    <option value="personal3">Nancy Montes</option>
+                    <option value="personal4">Erica Fuentes</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="prioridad">Prioridad</label>
+                <select id="prioridad" name="prioridad">
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+            </div>
+            <div class="input-group"><label for="titulo">Título</label><input type="text" id="titulo"></div>
+            <div class="input-group"><label for="descripcion-tarea">Descripción</label><textarea id="descripcion-tarea" rows="5"></textarea></div>
+            <div class="input-group"><label for="foto-tarea">Foto</label><input type="file" id="foto-tarea" accept="image/*"></div>
+            
+            <div class="form-botones">
+                <!-- CORREGIDO: Llama a mostrarAlertaCancelarTarea pasándole el evento -->
+                <button type="button" class="btn-cancelar" onclick="mostrarAlertaCancelarTarea(event)">Cancelar</button>
+                <button type="submit" class="btn-guardar">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- BLOQUE B: Panel de Alerta para Confirmar Cancelación -->
+    <div id="panelAlertaCancelarTarea" class="panel-alerta" style="display: none; padding: 15px; margin-top: 10px;">
+        <div class="alerta-icono">⚠️</div>
+        <h2 class="alerta-titulo" style="font-size: 1.3rem;">¿Seguro que quiere cancelar?</h2>
+        <p class="alerta-mensaje">Se perderán todos los datos ingresados en la tarea y regresará al menú principal.</p>
+        <div class="form-botones-alerta">
+            <button type="button" class="btn-alerta-aceptar" onclick="confirmarCancelacionTarea()">Sí, Cancelar</button>
+            <button type="button" class="btn-alerta-volver" onclick="cerrarAlertaCancelarTarea()">Volver a la Tarea</button>
+        </div>
+    </div>
+</div>
+
+<!-- NUEVA SECCIÓN: Panel único para Notificación de Tarea Registrada -->
+<div id="panelNotifTarea" class="panel-notificacion" style="display: none;">
+    <div class="notificacion-icono">📋✅</div>
+    <h2 class="notificacion-titulo" style="color: #2ecc71;">Tarea Asignada Exitosamente</h2>
+    
+    <div class="tarjeta-datos">
+        <p><strong>Fecha de Envío:</strong> <span id="notifTareaFecha" class="resaltar-fecha"></span></p>
+        <hr>
+        
+        <!-- Previsualización de la foto adjunta a la tarea -->
+        <div id="contenedorFotoTarea" class="avatar-resumen-contenedor" style="display: none; text-align: center; margin-bottom: 15px;">
+            <img id="notifFotoTarea" src="" alt="Evidencia de tarea" style="max-width: 100%; max-height: 150px; border-radius: 6px; border: 1px solid #ddd; object-fit: cover;">
+        </div>
+
+        <p><strong>Título:</strong> <span id="notifTareaTitulo"></span></p>
+        <p><strong>Destinatario:</strong> <span id="notifTareaDestinatario"></span></p>
+        <p><strong>Prioridad:</strong> <span id="notifTareaPrioridad"></span></p>
+        <p><strong>Descripción:</strong></p>
+        <p id="notifTareaDesc" style="background: #fff; padding: 8px; border: 1px solid #eee; border-radius: 4px; font-size: 0.9rem; font-style: italic;"></p>
+    </div>
+    
+    <div class="form-botones">
+        <button type="button" class="btn-notif-aceptar" onclick="cerrarNotificacionTarea()" style="background-color: #2ecc71; width: 100%; padding: 10px; border-radius: 4px; border: none; color: white; font-weight: bold; cursor: pointer;">Aceptar</button>
+    </div>
+</div>
+
+
+<!-- [PANEL 5] busqueda -->
+<div id="busqueda" class="formulario-flotante" style="display: none;">
+    <h2 class="encabezado-form">Búsqueda</h2>
+    <form action="busqueda" id="form-Busqueda">   
+        <div class="input-group">
+            <label for="buscar"><strong>Buscar por placa</strong></label>
+            <input type="text" id="buscar" placeholder="Ingrese la placa" maxlength="6">
+        </div>
+        <button type="button" id="btnBuscar" class="btn-guardar" onclick="simularBusquedaPlaca()" style="width: 100%; margin-bottom: 15px;">Buscar</button>
+        
+        <!-- FIX: Altura máxima definida de 120px y scroll vertical activo para no romper el formulario -->
+        <div id="resultado" class="resultado" style="max-height: 120px; overflow-y: auto; margin-bottom: 15px; border-radius: 5px;"></div>
+        
+        <div class="form-botones">
+            <button type="button" class="btn-cancelar" onclick="togglePanel('')" style="width: 100%;">Atrás</button>
+
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+<!-- [PANEL 6] configuracion -->
+<div id="configuracion" class="formulario-flotante" style="display: none;">
+    
+    <!-- BLOQUE A: Contenedor del Formulario Tradicional protegido -->
+    <div id="wrapperFormConfig">
+        <section class="configuracionbloque">
+            <h1 class="configuraciontitulo"><strong>Configuración</strong></h1>
+            
+            <div class="configuracion-opcion">
+                <label for="colortema" class="colortema1">
+                    <strong>Color del tema:</strong>
+                </label>    
+                <input type="color" id="colortema" value="#007bff">
+            </div>
+            
+            <div class="configuracion-opcion">
+                <label for="fuente" class="fuenteletra">
+                    <strong>Fuente de letra:</strong>
+                </label>
+                <select id="fuente" class="fuentebloque">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Botones de acción vinculados a la lógica segura -->
+        <div class="form-botones" style="display: flex; gap: 10px; margin-top: 20px;">
+            <button type="button" id="aplicar" class="btn-guardar" onclick="guardarConfiguracion()" style="flex: 1; padding: 10px; border-radius: 6px; border: none; font-weight: bold; background-color: #2b6cb0; color: white; cursor: pointer;">
+                Aplicar
+            </button>
+            <!-- CORREGIDO: Llama a mostrarAlertaCancelarConfig pasándole el evento -->
+            <button type="button" id="cancelar" class="btn-cancelar" onclick="mostrarAlertaCancelarConfig(event)" style="flex: 1; padding: 10px; border-radius: 6px; border: none; font-weight: bold; background-color: #e2e8f0; color: #4a5568; cursor: pointer;">
+                Cancelar
+            </button>
+        </div>
+    </div>
+
+    <!-- BLOQUE B: Panel de Alerta para Confirmar Cancelación -->
+    <div id="panelAlertaCancelarConfig" class="panel-alerta" style="display: none; padding: 15px; margin-top: 10px;">
+        <div class="alerta-icono">⚠️</div>
+        <h2 class="alerta-titulo" style="font-size: 1.3rem;">¿Seguro que quiere cancelar?</h2>
+        <p class="alerta-mensaje">Se descartarán las preferencias de color y fuente seleccionadas.</p>
+        <div class="form-botones-alerta">
+            <button type="button" class="btn-alerta-aceptar" onclick="confirmarCancelacionConfig()">Sí, Cancelar</button>
+            <button type="button" class="btn-alerta-volver" onclick="cerrarAlertaCancelarConfig()">Volver</button>
+        </div>
+    </div>
+</div>
+
+<!-- NUEVA SECCIÓN: Panel único para Notificación de Configuración Guardada -->
+<div id="panelNotifConfig" class="panel-notificacion" style="display: none;">
+    <div class="notificacion-icono">⚙️✅</div>
+    <h2 class="notificacion-titulo" style="color: #3498db;">Configuración Aplicada</h2>
+    
+    <div class="tarjeta-datos">
+        <p><strong>Fecha de Actualización:</strong> <span id="notifConfigFecha" class="resaltar-fecha"></span></p>
+        <hr>
+        <p>Los nuevos ajustes visuales se han guardado con éxito en las preferencias de su perfil.</p>
+    </div>
+    
+    <div class="form-botones">
+        <button type="button" class="btn-notif-aceptar" onclick="cerrarNotificacionConfig()" style="background-color: #3498db; width: 100%; padding: 10px; border-radius: 4px; border: none; color: white; font-weight: bold; cursor: pointer;">Aceptar</button>
+    </div>
+</div>
+
+</main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- pefil del usuario -->
+     <section class="perfil">
+
+    <!-- BLOQUE A: Información del Perfil (Protegido) -->
+    <div id="wrapperPerfil">
+        <img src="foto de perfil hombre.png" alt="Foto de perfil" class="foto-perfil">
+
+        <div class="informacion-usuario">
+            <h2>joseph muños</h2>
+            <p><strong>Cargo:</strong> Retomador</p>
+            <p><strong>Rol:</strong> Administrador(2)</p>
+            <p><strong>Correo:</strong> josephm@gmail.com</p>
+        </div>
+
+        <div class="cerrar sesion">
+            <button id="cerrarsesion" class="cerrars" onclick="mostrarAlertaCerrarSesion()">cerrar sesion</button>
+        </div>
+    </div>
+</section>
+
+
+<div>
+    <img src="logo usacodi sin fondo.png" alt="usacodi">
+</div>
+
+ <!-- pie de pagina informacion-->
+   <footer class="version">
+    <h3> version 1</h3>
+    <p>© 2026 USACODI - Todos los derechos reservados</p>
+</footer>
+
+<div id="panelAlertaCerrarSesion" class="modal-overlay" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="tituloCerrarSesion" aria-describedby="mensajeCerrarSesion">
+        <button type="button" class="modal-cerrar" onclick="cerrarAlertaCerrarSesion()" aria-label="Cerrar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div class="modal-icono" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+            </svg>
+        </div>
+        <h2 id="tituloCerrarSesion" class="modal-titulo">Cerrar sesión</h2>
+        <p id="mensajeCerrarSesion" class="modal-mensaje">¿Está seguro de que desea salir del sistema? Tendrá que volver a ingresar sus credenciales.</p>
+        <div class="modal-acciones">
+            <button type="button" class="btn-modal-secundario" onclick="cerrarAlertaCerrarSesion()">Cancelar</button>
+            <button type="button" class="btn-modal-peligro" onclick="confirmarCierreSesion()">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script src="prueba.js"></script>
+</body>
+</html>

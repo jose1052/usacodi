@@ -1,0 +1,122 @@
+body{
+    background: linear-gradient(to right, rgb(35, 33, 33), rgb(84, 83, 83));
+}
+div img{
+    width: 300px;
+    display: block;
+    margin: 100px auto 0;}
+.version{
+   
+    text-align: center;
+}
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+
+
+
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+}
+/* Estilos globales para el contenedor del formulario */
+.sesion {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    max-width: 400px;
+    margin: 40px auto;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    box-sizing: border-box;
+    border-top: 5px solid #d32f2f;
+}
+
+/* Título principal */
+.sesion h2 {
+    color: #1a1a1a;
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    margin-top: 0;
+    text-transform: capitalize;
+}
+
+/* Contenedor que agrupa los campos */
+.inputs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Títulos pequeños encima de cada input */
+.input-group h3 {
+    color:#555555 ;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+/* Estilo para las cajas de texto y contraseña */
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 1rem;
+    color:  #1a1a1a;
+    background-color: #f8f9fa;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+/* Efecto cuando el usuario hace clic dentro de un campo */
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    border-color: #d32f2f;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(211, 47, 47, 0.15);
+}
+
+/* Botón de Confirmar */
+.btn-confirmar {
+    width: 100%;
+    padding: 14px;
+    background-color:#d32f2f;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 30px;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efecto al pasar el mouse por encima del botón */
+.btn-confirmar:hover {
+    background-color: #b71c1c;
+}
+
+/* Efecto visual al hacer clic en el botón */
+.btn-confirmar:active {
+    transform: scale(0.98);
+}

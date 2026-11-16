@@ -1,0 +1,1143 @@
+.perfil {
+    width: 400px;
+
+     background: linear-gradient( to right, white , rgb(31, 31, 146));
+    margin: 50px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(250, 250, 250);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+.cerrars {
+    padding: 10px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #dc3545;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.informacion-usuario h2 {
+    margin-bottom: 20px; 
+}
+
+.informacion-usuario p {
+    text-align: left;
+}
+.perfil {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+body{
+    background: linear-gradient(to right, rgb(35, 33, 33), rgb(84, 83, 83));
+}
+div img{
+    width: 300px;
+    display: block;
+    margin: 100px auto 0;}
+    body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+}
+button{
+        background-color: rgb(235, 44, 6)  ;
+        color: aliceblue;
+        border-radius: 10px 10px 10px 10px ;
+        max-width: 150px;
+        transform: translateX(-10px) scale(1.05);
+}
+header h1{
+    color: aliceblue;
+}
+/* botones de menu principal*/
+.botones button {
+  padding: 12px 24px;
+  border: 2px solid #8420a2; /* Verde */
+  border-radius: 10px 0 10px 0;
+  background-color: transparent;
+  color: #e0d3e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Activa la animación personalizada al hacer hover */
+.botones button:hover {
+  background-color: rgba(121, 15, 236, 0.886);
+  color: white;
+  animation: pulso 1s infinite alternate;
+}
+
+/* Definición de la animación de pulso */
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05); /* Agranda el botón un 5% */
+  }
+}
+.cerrars:hover{
+    background-color: #a14921;
+    cursor: pointer;
+}
+.btn-notificaciones {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.btn-notificaciones:hover {
+    background-color: #5a80a8;
+}
+/*boton dentro de la notificacion (Ver)*/
+.btn-ver{
+background-attachment: fixed;
+background-color: #007bff;
+cursor: pointer;
+}
+
+
+/* PANEL DE NOTIFICACIONES */
+
+.panel-notificaciones {
+    bottom: 5px; /* Separación de 20px desde el borde inferior */
+    left: 10px;
+    z-index: 1000; /*  se superpondra a otros elementos de la página */
+    display: none;
+    position:fixed;
+    right: 30px;
+    top: 80px;
+    width: 320px;
+    background-color: white;
+    border: 2px solid #b9394ac9;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+    max-height: 200px;/*cantidad de notificaciones activan la barra*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 4px  12px rgb(0, 0, 0, 0.1);
+}
+.panel-notificaciones::-webkit-scrollbar-thumb:hover {
+    background: #5a5454; /* Color al pasar el mouse por encima */
+}
+.panel-notificaciones::-webkit-scrollbar {
+    width: 8px; /*ancho de la barra de notificaciones*/
+}
+.panel-notificaciones::-webkit-scrollbar-thumb {
+    background: #ccc; /* Color de la barra que se mueve(con el click sostenido) */
+    border-radius: 4px;
+}
+.panel-notificaciones::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Color del fondo de la barra */
+    border-radius: 4px;
+}
+
+
+.panel-notificaciones h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.notificacion {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.notificacion:last-child {
+    border-bottom: none;
+}
+
+.notificacion p {
+    margin-bottom: 0;
+}
+.contador {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+}
+
+
+/* Encabezado principal usuario*/
+.inicio {
+    width: 400px;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 15px 40px;
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1e3a8a
+    );
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    position: central;
+}
+
+/* Nombre USACODI */
+.inicio h1 {
+    color: white;
+    margin: 0;
+
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+/* Botón de notificaciones */
+.btn-notificaciones {
+    position: relative;
+
+    margin-left: auto;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* Efecto del botón */
+.btn-notificaciones:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Número de notificaciones */
+.contador {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ef4444;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    border: 2px solid white;
+}
+
+/* Panel de notificaciones */
+/* Variables del sistema de diseño (Estilo Dashboard Profesional) */
+:root {
+    --bg-panel: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --primary-color: #2563eb; /* Azul corporativo/tecnológico */
+    --primary-hover: #1d4ed8;
+    
+    /* Colores temáticos por tipo de alerta */
+    --shadow-reporte: rgba(245, 158, 11, 0.1);
+    --shadow-mensaje: rgba(37, 99, 235, 0.1);
+    --shadow-tarea: rgba(16, 185, 129, 0.1);
+}
+
+/* Contenedor Principal (Fijo abajo a la izquierda) */
+.panel-notificaciones {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    width: 360px;
+    background-color: var(--bg-panel);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Encabezado del Panel */
+.panel-encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: #f8fafc;
+}
+
+.panel-encabezado h2 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.badge-total {
+    background-color: #eff6ff;
+    color: var(--primary-color);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 20px;
+}
+
+/* Área de contenido con scroll integrado */
+.panel-contenido {
+    max-height: 380px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Tarjeta de Notificación Individual */
+.notificacion {
+    display: flex;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    position: relative;
+    align-items: flex-start;
+}
+
+.notificacion:hover {
+    background-color: #f8fafc;
+}
+
+/* Indicador de "Sin Leer" (Punto azul sutil) */
+.notificacion.sin-leer::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+
+/* Iconos circulares decorativos */
+.notificacion-icono {
+    font-size: 18px;
+    padding: 8px;
+    background-color: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Bloque de Información de texto */
+.notificacion-info {
+    flex: 1;
+}
+
+.notificacion-info strong {
+    display: block;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.notificacion-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+}
+
+.notificacion-tiempo {
+    font-size: 11px;
+    color: #94a3b8;
+    display: block;
+}
+
+/* Botón "Ver" Estilizado */
+.btn-ver {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    align-self: center;
+}
+
+.btn-ver:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+/* Personalización elegante de la Barra de Desplazamiento */
+.panel-contenido::-webkit-scrollbar {
+    width: 6px;
+}
+
+.panel-contenido::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.panel-contenido::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+.panel-contenido::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+
+
+/* boton nueva informacon al dar click*/
+
+/* Contenedor flotante centrado en pantalla */
+.formulario-flotante {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff; 
+    color: #333333; 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); 
+    width: 90%;
+    max-width: 450px; 
+    box-sizing: border-box;
+}
+
+/* Título del Formulario */
+.encabezado-form {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #1a1a1a;
+    text-align: center;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+/* Estructura vertical para cada campo (Label + Input) */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+}
+
+/* Estilo limpio para las casillas de texto */
+.input-group input[type="text"],
+.input-group input[type="file"] {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fafafa;
+}
+
+/* Cambia de color cuando el usuario hace clic en el campo */
+.input-group input[type="text"]:focus {
+    border-color: #2b6cb0;
+    outline: none;
+    background-color: #ffffff;
+}
+
+/* Alineación de los botones de guardar y cancelar */
+.form-botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.form-botones button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-guardar {
+    cursor: pointer;
+    background-color: #2b6cb0; /* Azul tecnológico */
+    color: rgb(255, 255, 255);
+}
+
+.btn-cancelar {
+    cursor: pointer;
+    background-color: #b9394ac9;
+   color: #4a5568;
+}
+
+/* Unica definición limpia para centrar TODOS los paneles flotantes */
+.formulario-flotante {
+    position: fixed; 
+    /* 1. Cambiamos el centrado rígido por un margen automático superior */
+    top: 5%; 
+    left: 50%;       
+    transform: translateX(-50%); /* Solo centra horizontalmente */
+    
+    background-color: #ffffff; 
+    color: #333333;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4); 
+    
+    z-index: 9999; 
+    
+    width: 90%;
+    max-width: 450px;
+    box-sizing: border-box;
+
+    /* 2. AQUÍ ESTÁ LA MAGIA: Límites de altura y barra de desplazamiento interna */
+    max-height: 85vh; /* No permite que el formulario mida más del 85% de la pantalla */
+    overflow-y: auto; /* Si el contenido es muy largo, añade un scroll interno suave */
+}
+
+/* Opcional: Dale un diseño más compacto a los campos para reducir la altura total */
+.formulario-flotante .input-group {
+    margin-bottom: 12px;
+}
+
+.formulario-flotante input[type="text"],
+.formulario-flotante input[type="file"],
+.formulario-flotante select {
+    padding: 8px; /* Reducimos ligeramente el espacio interno */
+    font-size: 0.95rem;
+}
+
+
+/* Inputs generales de tus formularios */
+.input-group select,
+.input-group textarea,
+.configuracion-opcion select {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    font-family: inherit;
+}
+
+/* Estilos específicos para ordenar las opciones de configuración */
+.configuracion-opcion {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.configuracion-opcion label {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.configuracion-opcion input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    cursor: pointer;
+    background: none;
+    padding: 0;
+}
+
+/*otro chats*/
+.otros-chats-seccion {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+.otros-chats-seccion h3 {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+.lista-chats {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.lista-chats li {
+    margin-bottom: 5px;
+}
+.chat-item {
+    width: 100%;
+    text-align: left;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background 0.2s;
+}
+.chat-item:hover {
+    background: #e9ecef;
+    color: #0056b3;
+}
+/* Caja contenedora del historial */
+.historial-chat {
+    height: 60px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    padding: 10px;
+    overflow-y: auto; /* Barra de desplazamiento interna */
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-vacio {
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    margin: auto 0;
+}
+
+/* Estructura general de los globos de texto */
+.globo-mensaje {
+    max-width: 80%;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.4;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para tus mensajes (Derecha) */
+.mensaje-mio {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    align-self: flex-end;
+    border-bottom-right-radius: 2px;
+}
+
+/* Estilo para los mensajes que recibes (Izquierda) */
+.mensaje-otro {
+    background-color: #e2e3e5;
+    color: #383d41;
+    align-self: flex-start;
+    border-bottom-left-radius: 2px;
+}
+/* FECHA Y HORA DE LOS MENSAJES*/
+/* Caja del historial para que tenga scroll y tamaño fijo */
+.historial-chat {
+    max-height: 250px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: #fdfdfd;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Estilo de la burbuja del mensaje enviado */
+.mensaje-enviado {
+    background-color: #dcf8c6; /* Verde tipo WhatsApp */
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    max-width: 80%;
+    margin-left: auto; /* Alínea el mensaje a la derecha */
+    word-wrap: break-word;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* Estilo para la fecha y hora dentro del chat */
+.fecha-hora-chat {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    text-align: right;
+    margin-top: 4px;
+    font-style: italic;
+}
+
+
+.autor { font-weight: bold; font-size: 11px; margin-bottom: 2px; }
+.hora { font-size: 10px; opacity: 0.7; text-align: right; margin-top: 4px; }
+
+/* Estilo para resaltar el chat seleccionado en la lista inferior */
+.chat-item.activo {
+    background-color: #007bff !important;
+    color: white !important;
+    font-weight: bold;
+    border-color: #0056b3;
+}
+
+.acciones-cedula-seccion {
+    margin-top: 20px;
+    border-top: 2px dashed #eee;
+    padding-top: 15px;
+}
+.acciones-cedula-seccion h3 {
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 12px;
+}
+.control-cedula {
+    margin-bottom: 12px;
+}
+.control-cedula label {
+    font-size: 13px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 4px;
+}
+.busqueda-inline {
+    display: flex;
+    gap: 8px; /* Espacio entre el input y su botón */
+}
+.busqueda-inline input {
+    flex: 1; /* El input se estira para ocupar el espacio libre */
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+/* Botones de acción */
+.btn-accion-azul {
+    background-color: #007bff; color: white; border: none;
+    padding: 6px 12px; border-radius: 4px; cursor: pointer;
+}
+.btn-accion-azul:hover { background-color: #0056b3; }
+
+.btn-accion-rojo {
+    background-color: #dc3545; color: white; border: none;
+    padding: 6px 12px; border-radius: 4px; cursor: pointer;
+}
+.btn-accion-rojo:hover { background-color: #bd2130; }
+/* Estilo estricto para el contenedor de resultados */
+.resultado {
+    max-height: 110px !important;    /* Limita la altura máxima de la caja verde */
+    overflow-y: auto !important;     /* Activa la barra desplazadora si el texto se pasa */
+    margin-bottom: 15px !important;  /* Deja espacio libre antes del botón Atrás */
+    border-radius: 6px;
+    padding-right: 4px;              /* Espacio para que la barra no tape las letras */
+}
+
+/* OPCIONAL: Personaliza la barra de scroll para que se vea delgada y moderna */
+.resultado::-webkit-scrollbar {
+    width: 6px;                      /* Ancho de la barra */
+}
+
+.resultado::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05); /* Fondo del camino del scroll */
+    border-radius: 10px;
+}
+
+.resultado::-webkit-scrollbar-thumb {
+    background: #385723;             /* Color de la barra (Verde oscuro a juego) */
+    border-radius: 10px;
+}
+/*ESTILO PARA EL RESULTADO DE LA NUEVA INFORMACION*/
+.panel-resumen {
+    background-color: #ffffff;
+    border: 2px solid #2ecc71; /* Borde verde de éxito */
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+.encabezado-resumen {
+    color: #2ecc71;
+    text-align: center;
+    margin-top: 0;
+}
+.tarjeta-datos {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+.resaltar-fecha {
+    color: #34495e;
+    font-weight: bold;
+    background-color: #e8f8f5;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.btn-aceptar {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.btn-aceptar:hover {
+    background-color: #27ae60;
+}
+/*PARTE DE LA FOTOS DEL VEHICULO*/
+.contenedor-foto-resumen {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#resumenFoto {
+    max-width: 100%;       /* Evita que se salga del contenedor */
+    max-height: 180px;     /* Limita la altura para mantener simetría */
+    border-radius: 6px;    /* Bordes redondeados modernos */
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    object-fit: cover;     /* Recorta proporcionalmente la imagen si es muy grande */
+    margin: 0 auto;
+}
+/* Contenedor principal de la Alerta */
+.panel-alerta {
+    background-color: #ffffff;
+    border: 2px solid #f39c12; /* Borde naranja de advertencia */
+    border-radius: 8px;
+    padding: 25px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.alerta-icono {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.alerta-titulo {
+    color: #e67e22;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.alerta-mensaje {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+/* Distribución de los botones de la alerta */
+.form-botones-alerta {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-alerta-aceptar {
+    background-color: #e74c3c; /* Rojo para confirmar salida */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+}
+
+.btn-alerta-aceptar:hover {
+    background-color: #c0392b;
+}
+
+.btn-alerta-volver {
+    background-color: #bdc3c7; /* Gris para regresar al flujo anterior */
+    color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    flex: 1;
+}
+
+.btn-alerta-volver:hover {
+    background-color: #95a5a6;
+}
+
+
+
+
+
+
+
+/*GESTION DE USUARIOS*/
+/* Base del Panel único */
+.panel-notificacion {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 420px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+/* Variaciones de Bordes y Colores según la acción */
+.panel-notificacion.notif-verde { border: 2px solid #2ecc71; }
+.panel-notificacion.notif-verde .notificacion-titulo { color: #2ecc71; }
+
+.panel-notificacion.notif-azul { border: 2px solid #3498db; }
+.panel-notificacion.notif-azul .notificacion-titulo { color: #3498db; }
+
+.panel-notificacion.notif-rojo { border: 2px solid #e74c3c; }
+.panel-notificacion.notif-rojo .notificacion-titulo { color: #e74c3c; }
+
+/* Elementos internos */
+.notificacion-icono {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+.tarjeta-datos {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 6px;
+    text-align: left;
+    line-height: 1.5;
+}
+.resaltar-fecha {
+    color: #555;
+    font-weight: bold;
+}
+.btn-notif-aceptar {
+    background-color: #34495e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.btn-notif-aceptar:hover {
+    background-color: #2c3e50;
+}
+.avatar-resumen-contenedor {
+    text-align: center;
+    margin: 15px 0;
+}
+
+#notifFotoPerfil {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Esto hace que la foto sea completamente redonda */
+    object-fit: cover;   /* Evita que la foto se deforme o estire */
+    border: 3px solid #ddd;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    display: inline-block;
+}
+
+/* Ajuste adicional por si el panel verde o azul quieren personalizar el borde del avatar */
+.panel-notificacion.notif-verde #notifFotoPerfil { border-color: #2ecc71; }
+.panel-notificacion.notif-azul #notifFotoPerfil { border-color: #3498db; }
+
+/* Modal de cierre de sesión */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(15, 23, 42, 0.62);
+    isolation: isolate;
+    transform: translateZ(0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.22s ease, visibility 0.22s ease;
+}
+
+.modal-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.modal-dialog {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px 28px 24px;
+    text-align: center;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.28);
+    transform: translateY(12px) scale(0.97);
+    transition: transform 0.22s ease;
+}
+
+.modal-overlay.activo .modal-dialog {
+    transform: translateY(0) scale(1);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #64748b;
+    font-size: 1.6rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.modal-cerrar:hover {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+.modal-icono {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.modal-titulo {
+    margin: 0 0 8px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.modal-mensaje {
+    margin: 0 0 24px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #64748b;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-modal-secundario,
+.btn-modal-peligro {
+    flex: 1;
+    border-radius: 10px;
+    padding: 11px 16px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-modal-secundario {
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    color: #334155;
+}
+
+.btn-modal-secundario:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+}
+
+.btn-modal-peligro {
+    border: none;
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.btn-modal-peligro:hover {
+    background: #b91c1c;
+}
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+@media (max-width: 480px) {
+    .modal-dialog {
+        padding: 28px 20px 20px;
+    }
+
+    .modal-acciones {
+        flex-direction: column-reverse;
+    }
+}

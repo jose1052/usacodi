@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="menuusuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu principal usuario</title>
+</head>
+<body>
+ <!-- ENCABEZADO Y NOTIFICACIONES -->
+
+    <header class="inicio">
+    <h1><strong>USACODI</strong></h1>
+    <!-- El botón principal ahora tiene su contador de notificaciones generales -->
+    <button type="button" id="btnNotificaciones" class="btn-notificaciones" onclick="toggleMenuNotificaciones()">
+        <span class="contador" id="contadorPrincipal">2</span> 🔔 Notificaciones
+    </button> 
+</header>
+
+<div id="panelNotificaciones" class="panel-notificaciones" style="display: none;">
+    <div class="panel-encabezado">
+        <h2>Notificaciones</h2>
+        <span class="badge-total" id="badgeInterno">2 Nuevas</span>
+    </div>
+    
+    <div class="panel-contenido">
+        <!-- Notificación: Nuevo Reporte (Agregamos id="notif-reporte") -->
+        <div class="notificacion alerta-reporte sin-leer" id="notif-reporte">
+            <div class="notificacion-icono">📊</div>
+            <div class="notificacion-info">
+                <strong>Nuevo reporte</strong>
+                <p>Tienes un nuevo reporte técnico listo para revisión.</p>
+                <span class="notificacion-tiempo">Hace 5 min</span>
+            </div>
+            <!-- Modificado: Llama a procesarLectura pasando su ID y el panel flotante destino -->
+            <button class="btn-ver" onclick="procesarLectura('notif-reporte', 'gestionusuario')">Ver</button>
+        </div>
+
+        <!-- Notificación: Nuevo Mensaje  -->
+        <div class="notificacion alerta-mensaje sin-leer" id="notif-mensaje">
+            <div class="notificacion-icono">💬</div>
+            <div class="notificacion-info">
+                <strong>Nuevo mensaje</strong>
+                <p>Rafael Torrealba te ha enviado un mensaje en el chat.</p>
+                <span class="notificacion-tiempo">Hace 15 min</span>
+            </div>
+            <!-- Modificado: Llama a procesarLectura pasando su ID y el panel flotante destino -->
+            <button class="btn-ver" onclick="procesarLectura('notif-mensaje', 'mensaje')">Ver</button>
+        </div>
+
+        <!-- Notificación: Nueva Tarea  -->
+        <div class="notificacion alerta-tarea">
+            <div class="notificacion-icono">📋</div>
+            <div class="notificacion-info">
+                <strong>Nueva tarea</strong>
+                <p>Tienes una tarea asignada en el tablero de desarrollo.</p>
+                <span class="notificacion-tiempo">Hace 2 horas</span>
+            </div>
+            <button class="btn-ver">Ver</button>
+        </div>
+    </div>
+</div>
+</header>
+<script src="menuusuario.js"></script>   
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <link rel="stylesheet" href="tareasusuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tareas usuario</title>
+</head>
+<body>
+    <header class="inicio"><h1><strong>USACODI</strong></h1></header>
+ <!-- seccion de las nuevas informaciones de vehiculos que son agragados-->
+   <main class="informacion-nueva" aria-labelledby="titulo-principal">
+        <h2 id="titulo-principal">Nueva Información</h2>
+        
+        <!-- Contenedor dinámico: JS inyectará las tarjetas aquí -->
+        <div id="listainformaciones" class="lista-vehiculos" role="list">
+            <!-- Las tarjetas se generan dinámicamente -->
+        </div>
+
+        <nav class="navegacion">
+            <button type="button" class="btnAtras" id="btnAtras" aria-label="Regresar a la página anterior">
+                ← Atrás
+            </button>
+        </nav>
+    </main>
+
+    
+    
+   <!-- PERFIL DEL USUARIO-->
+    <section class="perfil">
+
+    <img src="foto de perfil hombre.png" alt="Foto de perfil" class="foto-perfil">
+
+    <div class="informacion-usuario">
+        <h2>Gerardo Mentris</h2>
+
+        <p><strong>Cargo:</strong>alistador-conductor</p>
+
+        <p><strong>Rol:</strong>usuario operario</p>
+
+        <p><strong>Correo:</strong>gmentris123@gmail.com</p>
+
+    </div>
+    <div class="cerrar sesion" >
+        <button id="cerrarsesion" class="cerrars">cerrar sesion</button>
+    </div>
+
+</section>
+
+<!-- IMAGEN DE CENTRO -->
+        <div>
+            <img src="logo usacodi sin fondo.png" alt="usacodi">
+    </div>
+
+    <footer class="version">
+    <h3> version 1</h3>
+    <p>© 2026 USACODI - Todos los derechos reservados</p>
+</footer>
+    <script src="tareasusuario.js"></script>
+</body>
+</html>

@@ -1,0 +1,430 @@
+/* Tarjeta del perfil */
+
+.perfil {
+    width: 400px;
+
+     background: linear-gradient( to right, white , rgb(31, 146, 37));
+    margin: 50px auto;
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(250, 250, 250);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+/* cuerpo de la pagina*/
+body{
+    background: linear-gradient(to right, rgb(35, 33, 33), rgb(84, 83, 83));
+}
+div img{
+    width: 300px;
+    display: block;
+    margin: 100px auto 0;}
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px;
+}
+button{
+        background-color: rgb(235, 44, 6)  ;
+        color: aliceblue;
+        border-radius: 10px 10px 10px 10px ;
+        max-width: 150px;
+        transform: translateX(-10px) scale(1.05);
+}
+.cerrars {
+    padding: 10px 25px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #dc3545;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+header h1{
+    color: aliceblue;
+}
+.informacion-usuario h2 {
+    margin-bottom: 20px;
+}
+
+.informacion-usuario p {
+    text-align: left;
+}
+.perfil {
+    position: absolute;
+    top: 0%;
+    right: 20px;
+}
+
+
+/* Encabezado principal usuario*/
+.inicio {
+    width: 400px;
+    min-height: 80px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 15px 40px;
+
+    background: linear-gradient(
+        135deg,
+        #111827,
+        #1e3a8a
+    );
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+    position: central;
+}
+
+/* Nombre USACODI */
+.inicio h1 {
+    color: white;
+    margin: 0;
+
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+/* Botón de notificaciones */
+.btn-notificaciones {
+    position: relative;
+
+    margin-left: auto;
+
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+/* Efecto del botón */
+.btn-notificaciones:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+/* Número de notificaciones */
+.contador {
+    position: absolute;
+
+    top: -8px;
+    right: -8px;
+
+    width: 23px;
+    height: 23px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ef4444;
+    color: white;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    border: 2px solid white;
+}
+
+/* Panel de notificaciones */
+.panel-notificaciones {
+    position: absolute;
+
+    top: 75px;
+    right: 40px;
+
+    width: 350px;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+
+    z-index: 1000;
+}
+
+/* Título del panel */
+.panel-notificaciones h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    color: #1e3a8a;
+
+    font-size: 20px;
+
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 10px;
+}
+
+/* Cada notificación */
+.notificacion {
+    padding: 12px;
+
+    margin-bottom: 10px;
+
+    background: #f3f6fb;
+
+    border-left: 4px solid #2563eb;
+
+    border-radius: 8px;
+}
+
+/* Título de la notificación */
+.notificacion strong {
+    color: #1e3a8a;
+}
+
+/* Texto */
+.notificacion p {
+    margin: 5px 0 0;
+
+    color: #555;
+
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* botones del menu usuario */
+.botones button {
+  padding: 12px 24px;
+  border: 2px solid #8420a2; 
+  border-radius: 10px 0 10px 0;
+  background-color: transparent;
+  color: #e0d3e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Activa la animación personalizada al hacer hover */
+.botones button:hover {
+  background-color: rgba(121, 15, 236, 0.886);
+  color: white;
+  animation: pulso 1s infinite alternate;
+}
+
+/* Definición de la animación de pulso */
+@keyframes pulso {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05); /* Agranda el botón un 5% */
+  }
+}
+.cerrars:hover{
+    background-color: #a14921;
+    cursor: pointer;
+}
+.btn-notificaciones {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+
+}
+
+.btn-notificaciones:hover {
+    background-color: #5a80a8;
+}
+
+
+/* PANEL DE NOTIFICACIONES */
+
+.panel-notificaciones {
+    display: none;
+    position:sticky;
+    right: 30px;
+    top: 80px;
+    width: 320px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    z-index: 100;
+}
+
+.panel-notificaciones h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.notificacion {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.notificacion:last-child {
+    border-bottom: none;
+}
+
+.notificacion p {
+    margin-bottom: 0;
+}
+.contador {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
+}
+/* PANEL DE MENSAJES */
+details{
+    background: linear-gradient( to right, rgb(34, 33, 33), rgb(179, 40, 40));
+border-radius: 12px;
+padding: 30px;
+width: 100px;
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+ max-width: 600px;
+  box-sizing: border-box;
+   max-height: 250px;
+    overflow-y: auto;
+}
+summary{
+    cursor: pointer;
+    align-items: center;
+    
+}
+.btnAtras{
+    cursor: pointer;
+    align-items: center;
+}
+.mensaje{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-bottom:1px solid #adb3ad;
+}
+.mensajes-no-leidos {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+details::-webkit-scrollbar {
+    width: 10px;
+}
+
+details::-webkit-scrollbar-thumb {
+    background-color: rgb(64, 221, 32);
+    border-radius: 10px;
+}
+
+details::-webkit-scrollbar-track {
+    background-color: rgb(251, 255, 255);
+}
+.panel-mensajes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    max-width: 350px;
+    margin: 30px auto;   /* centra horizontalmente el bloque completo */
+}
+.panel-mensajes details {
+    width: 100%;
+}
+button.btnresponder{
+    background-color: #4aeb4a8f;
+    cursor: pointer;
+    color: white;
+    margin-top: 10px;
+    padding: 7px 15px;
+    border: none;
+}
+.panel-mensajes {
+    width: 420px;
+    margin: 30px;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+.panel-mensajes summary {
+    cursor: pointer;
+    padding: 12px;
+    background: linear-gradient( to right, rgba(201, 214, 22, 0.582), rgba(35, 179, 204, 0.582));
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+.panel-mensajes summary::marker {
+    color: white;
+}
+.lista-mensajes {
+    max-height: 350px;
+    
+    margin-top: 15px;
+    padding-right: 8px;
+}
+.mensaje p {
+    color: #f3f1f1;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+.fecha {
+    display: block;  
+    font-size: 12px;
+    margin-top: 10px;
+}
+.lista-mensajes::-webkit-scrollbar {
+    width: 8px;
+}

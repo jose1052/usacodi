@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+     <link rel="stylesheet" href="mensajeriausuario.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajeria(usuarios)</title>
+</head>
+<body>
+    <header class="inicio">
+        <h1><strong>USACODI</strong></h1>
+
+         <button type="button" id="btnNotificaciones" class="btn-notificaciones"><span class="contador">3</span>
+        🔔 Notificaciones
+    </button>
+    <div id="panelNotificaciones" class="panel-notificaciones">
+
+    <h2>Notificaciones</h2>
+
+    <div class="notificacion">
+        <strong>Nueva mensaje</strong>
+        <p>Tienes un nuevo mensaje.</p>
+    </div>
+
+    <div class="notificacion">
+        <strong>nuevo reporte</strong>
+        <p>tienes un nuevo mensaje.</p>
+    </div>
+        
+    </header>
+   
+</div>
+    <!--menu de mensajes(ENTRADA, SALIDA) -->
+<div class="panel-mensajes">
+  <details >
+    <summary><h3>mensajes</h3> (<span id="contadormensajes">0</span>)</summary>
+    <div class="lista-mensajes">
+    <div class="mensaje" >
+      
+        <strong>andres gomes</strong>
+        <p>tienes una nueva tarea asignada, revisar el funcionamineto del encendido del vehiculo de placa TYY563, creo que es urgente.</p>
+        <span class="fecha" ></span>
+        <button class="btnresponder">responder</button>
+    </div>
+     <div class="mensaje">
+        <strong>administrador</strong>
+        <p>nueva informacion agregada</p>
+         <span class="fecha" ></span>
+        <button class="btnresponder">responder</button>
+
+    </div>
+    <div class="mensaje">
+        <strong>joseph muños</strong>
+        <p>buen dia , ya pudo termnar el vehiculo de placas LPP569, estan que acosan...</p>
+         <span class="fecha" ></span>
+        <button class="btnresponder">responder</button>
+
+    </div>
+     <div class="mensaje">
+        <strong>rafael torrealba</strong>
+        <p>por favor alista vehiculo de placa TRR345</p>
+         <span class="fecha"></span>
+        <button class="btnresponder">responder</button>
+
+    </div>
+    </div>
+ </details>
+ <div><button id="btn-Atras" class="btnAtras">Atras</button></div>
+ </div>
+ 
+
+
+
+
+
+    <!-- seccion de perfil usuario-->
+
+     <section class="perfil">
+
+    <img src="foto de perfil hombre.png" alt="Foto de perfil" class="foto-perfil">
+
+    <div class="informacion-usuario">
+        <h2>Gerardo Mentris</h2>
+
+        <p><strong>Cargo:</strong> alistador-conductor</p>
+
+        <p><strong>Rol:</strong> usuario operario</p>
+
+        <p><strong>Correo:</strong> gmentris123@gmail.com</p>
+
+    </div>
+    <div class="cerrar sesion" >
+        <button id="cerrarsesion" class="cerrars">cerrar sesion</button>
+    </div>
+
+</section>
+
+    <div>
+      <img src="logo usacodi sin fondo.png" alt="usacodi">
+   </div>
+
+   <footer class="version">
+    <h3> version 1</h3>
+    <p>© 2026 USACODI - Todos los derechos reservados</p>
+</footer>
+<script src="mensajeriausuario.js"></script>
+</body>
+</html>
