@@ -40,7 +40,7 @@ public class UsuarioServlet extends HttpServlet {
         int id_rol = Integer.parseInt(request.getParameter("id_rol"));
 
         Usuario nuevoUsuario = new Usuario(nombres, apellidos, edad, direccion, correo, contrasena, telefono, id_rol);
-        usuarioDAO.insertarUsuario(nuevoUsuario); // Asegúrate de que el nombre del método coincida con tu DAO
+        usuarioDAO.insertarUsuario(nuevoUsuario); 
 
         // Redirige al doGet para mostrar la lista actualizada
         response.sendRedirect("UsuarioServlet");

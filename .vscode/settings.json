@@ -1,6 +1,7 @@
 {
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
-        "usacodi.js/usacodiJDBC/lib/mysql-connector-j-26.10.0.jar"
+        "usacodi.js/usacodiJDBC/lib/mysql-connector-j-26.10.0.jar",
+        "usacodiweb/lib/servlet-api.jar"
     ]
 }
